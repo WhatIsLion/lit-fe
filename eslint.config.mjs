@@ -1,9 +1,8 @@
+import { FlatCompat } from '@eslint/eslintrc';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import { readFileSync } from 'fs';
-import { FlatCompat } from '@eslint/eslintrc';
-
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
