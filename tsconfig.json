@@ -21,11 +21,7 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./app/*"],
-      "@lit-ui": ["packages/ui"]
-    }
+    "baseUrl": "."
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "packages/ui/tsconfig.json"],
   "exclude": ["node_modules"]
