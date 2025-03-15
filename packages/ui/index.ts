@@ -1,2 +1,3 @@
-export * from './atom';
-export * from './molecule';
+import Button from './button';
+
+export { Button };
