@@ -15,7 +15,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["packages/app/src/*"],
+      "@lion/ui": ["packages/ui"]
+    }
   },
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["packages/app/**/*", "packages/ui/**/*"],
+  "exclude": ["node_modules", "packages/*/node_modules"]
 }
