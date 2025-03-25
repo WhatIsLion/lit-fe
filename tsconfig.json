@@ -2,9 +2,6 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,12 +13,21 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": "src",
     "paths": {
-      "@app/*": ["packages/app/src/*"],
-      "@lion/ui": ["packages/ui"]
+      "@/*": ["./*"],
+      "@/shared/*": ["shared/*"],
+      "@/entities/*": ["entities/*"],
+      "@/features/*": ["features/*"],
+      "@/widgets/*": ["widgets/*"],
+      "@/pages/*": ["pages/*"]
     }
   },
-  "include": ["packages/app/**/*", "packages/ui/**/*"],
-  "exclude": ["node_modules", "packages/*/node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

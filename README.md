@@ -1,1 +1,1 @@
-## Lion Is Tiger (Web / Frontend)
+## lion-is-tiger (web / frontend)

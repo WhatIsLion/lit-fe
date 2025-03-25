@@ -1,8 +1,6 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import { readFileSync } from 'fs';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,32 +9,33 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const prettierConfigPath = join(__dirname, '.prettierrc');
-const prettierConfig = JSON.parse(readFileSync(prettierConfigPath, 'utf8'));
-
 const eslintConfig = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:prettier/recommended'),
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
+    files: ['**/*.{js,ts,jsx,tsx}'],
     plugins: {
-      'simple-import-sort': simpleImportSort,
+      prettier: require('eslint-plugin-prettier'),
+      'simple-import-sort': require('eslint-plugin-simple-import-sort'),
     },
     rules: {
-      'prettier/prettier': ['error', prettierConfig],
-      /**
-       * @note module import 정렬
-       *  1. react 관련
-       *  2. next.js 관련
-       *  3. 외부 패키지 관련
-       *  4. type import
-       *  5. 상대주소
-       */
+      'prettier/prettier': 'error',
+
       'simple-import-sort/imports': [
-        'error',
+        'warn',
         {
-          groups: [['^react$'], ['^next'], ['^@?\\w'], ['^@?\\w+.*\\s+type'], ['^\\.']],
+          groups: [
+            ['^import type'],
+            ['^react', '^@?react'],
+            ['^next'],
+            ['^@/shared'],
+            ['^@/entities'],
+            ['^@/features'],
+            ['^@/widgets'],
+            ['^@/pages'],
+            ['^\\.'],
+          ],
         },
       ],
-      'simple-import-sort/exports': ['error'],
     },
   },
 ];
