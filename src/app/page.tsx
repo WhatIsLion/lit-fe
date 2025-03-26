@@ -1,5 +1,7 @@
+import { redirect } from 'next/navigation';
+
 const Init = () => {
-  return <h1>⛳️</h1>;
+  redirect('/home');
 };
 
 export default Init;
