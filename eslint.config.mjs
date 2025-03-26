@@ -2,6 +2,9 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
 
+import eslintPluginPrettier from 'eslint-plugin-prettier';
+import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -14,8 +17,8 @@ const eslintConfig = [
   {
     files: ['**/*.{js,ts,jsx,tsx}'],
     plugins: {
-      prettier: require('eslint-plugin-prettier'),
-      'simple-import-sort': require('eslint-plugin-simple-import-sort'),
+      prettier: eslintPluginPrettier,
+      'simple-import-sort': eslintPluginSimpleImportSort,
     },
     rules: {
       'prettier/prettier': 'error',
@@ -27,11 +30,11 @@ const eslintConfig = [
             ['^import type'],
             ['^react', '^@?react'],
             ['^next'],
-            ['^@/shared'],
-            ['^@/entities'],
-            ['^@/features'],
-            ['^@/widgets'],
-            ['^@/pages'],
+            ['^@shared'],
+            ['^@entities'],
+            ['^@features'],
+            ['^@widgets'],
+            ['^@pages'],
             ['^\\.'],
           ],
         },
