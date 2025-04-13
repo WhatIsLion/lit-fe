@@ -22,23 +22,6 @@ const eslintConfig = [
     },
     rules: {
       'prettier/prettier': 'error',
-
-      'simple-import-sort/imports': [
-        'warn',
-        {
-          groups: [
-            ['^import type'],
-            ['^react', '^@?react'],
-            ['^next'],
-            ['^@shared'],
-            ['^@entities'],
-            ['^@features'],
-            ['^@widgets'],
-            ['^@pages'],
-            ['^\\.'],
-          ],
-        },
-      ],
     },
   },
 ];

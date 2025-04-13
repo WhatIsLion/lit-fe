@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
-import './globals.css';
+import '../style/globals.css';
 
 export const metadata: Metadata = {
   title: '우주최강 공구마켓 | 사자는 타이거',
