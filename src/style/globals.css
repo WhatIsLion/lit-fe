@@ -1,3 +1,15 @@
 @import 'tailwindcss';
 
 @import './color.css';
+@import './text.css';
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}

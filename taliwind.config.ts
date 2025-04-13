@@ -4,6 +4,16 @@ const config: Config = {
   content: ['./src/**/*.{ts,tsx,js,jsx,html}'],
   theme: {
     extend: {
+      fontSize: {
+        14: 'var(--text-14)',
+        16: 'var(--text-16)',
+        18: 'var(--text-18)',
+        20: 'var(--text-20)',
+        24: 'var(--text-24)',
+        28: 'var(--text-28)',
+        32: 'var(--text-32)',
+        40: 'var(--text-40)',
+      },
       colors: {
         white: 'var(--color-white)',
         black: 'var(--color-black)',
